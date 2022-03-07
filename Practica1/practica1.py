@@ -41,7 +41,7 @@ def producer(lista,buffer,indice):
      lista[2*indice+1].release() 
      
 
-def producer2(lista, buffer): #esta función nos creará, gracias al algoritmo mínimo, la lista definitiva tal y como se define en el enunciado
+def consumer(lista, buffer): #esta función nos creará, gracias al algoritmo mínimo, la lista definitiva tal y como se define en el enunciado
     l=[]
     for i in range(NPROD):
         lista[2*i+1].acquire()
