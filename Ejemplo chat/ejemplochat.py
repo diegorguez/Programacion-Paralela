@@ -23,7 +23,7 @@ def serve_client(conn,pid,clients):
         try:
             m=conn.recv()
             print(f"received message:[m]: from {pid}")
-            if m="quit":
+            if m=="quit":
                 connected=False
                 conn.close()
             else:
@@ -54,15 +54,15 @@ def main(ip_address):
                 
                 send_msg_all(pid,f"new client {pid}",clients)
                 
-                p=Process(target=serve_client,arg=(args=conn,listener.last_accepted,clients))
+                p=Process(target=serve_client,args=(conn,listener.last_accepted,clients))
                 p.start()
             except Exception as e:
-                traceback.print exc()
+                traceback.print_exc()
                 
         print('end server')
         
 if __name__=="__main__":
     ip_address="127.0.0.1"
-    iif len(sys.argv)>1:
+    if len(sys.argv)>1:
         ip_address=sys.argv[1]
     main(ip_address)
